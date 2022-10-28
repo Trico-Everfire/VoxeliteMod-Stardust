@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"normal": {
+			"model": "voxelitemod:block/black_stone"
+		}
+	}
+}

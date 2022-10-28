@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
-  "version": "${version}",
+  "id": "voxelitemod",
+  "version": "0.1.0",
 
-  "name": "Example Mod",
+  "name": "Voxelite Mod - Stardust",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
     "Me!"
@@ -14,16 +14,22 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/voxelitemod/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "com.everfire.voxelitemod.VoxeliteMod"
+    ],
+    "client": [
+      "com.everfire.voxelitemod.sided.VoxeliteModClient"
+    ],
+    "fabric-datagen":[
+    	"com.everfire.voxelitemod.datagen.VoxeliteModDataGenEntryPoint"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "voxelitemod.mixins.json"
   ],
 
   "depends": {
