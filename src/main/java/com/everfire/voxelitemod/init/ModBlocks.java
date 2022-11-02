@@ -1,9 +1,10 @@
-package com.everfire.voxelitemod.block;
+package com.everfire.voxelitemod.init;
 
 import com.everfire.voxelitemod.VoxeliteMod;
-import com.everfire.voxelitemod.item.ModItemGroup;
-import com.everfire.voxelitemod.item.ModItems;
+import com.everfire.voxelitemod.block.LockableDoorBlock;
+import com.everfire.voxelitemod.block.StardustGrowthBlock;
 
+import com.everfire.voxelitemod.item.LockableDoorBlockItem;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.DoorBlock;
@@ -20,11 +21,9 @@ public class ModBlocks {
 	public static final Block AVOKINATE_BLOCK = registerBlock("avokinate_block", new Block(FabricBlockSettings.of(Material.STONE)),ModItemGroup.VOXELITE_Block_GROUP);
 	public static final Block VOXELIZED_STONE = registerBlock("voxelized_stone", new Block(FabricBlockSettings.of(Material.GLASS)),ModItemGroup.VOXELITE_Block_GROUP);
 	public static final Block STARDUSTGROWTH = registerBlock("stardust_growth", new StardustGrowthBlock(FabricBlockSettings.of(Material.GLASS)),ModItemGroup.VOXELITE_Block_GROUP);
-	
-	public static final DoorBlock BLACKSTONEDOOR = (DoorBlock) registerBlock("black_stone_door", new DoorBlock(FabricBlockSettings.of(Material.METAL).resistance(6).hardness(6)), ModItemGroup.VOXELITE_Block_GROUP);
-	public static final DoorBlock BLUE_DUNGEON_DOOR = (DoorBlock) registerBlock("blue_dungeon_door", new DoorBlock(FabricBlockSettings.of(Material.METAL).resistance(6).hardness(6)), ModItemGroup.VOXELITE_Block_GROUP);
-	public static final DoorBlock BLACKSTONEDOORLOCKED = (DoorBlock) registerBlock("black_stone_door_locked", new DoorBlock(FabricBlockSettings.of(Material.METAL).resistance(6).hardness(6)), ModItemGroup.VOXELITE_Block_GROUP);
-	public static final DoorBlock BLUE_DUNGEON_DOOR_LOCKED = (DoorBlock) registerBlock("blue_dungeon_door_locked", new DoorBlock(FabricBlockSettings.of(Material.METAL).resistance(3600000.8f).hardness(3600000.8f)), ModItemGroup.VOXELITE_Block_GROUP);
+	public static final DoorBlock BLACKSTONEDOOR = (LockableDoorBlock) registerDoorBlock("black_stone_door", new LockableDoorBlock(FabricBlockSettings.of(Material.METAL).resistance(6).hardness(6), ModItems.BLACK_STONE_DUNGEON_KEY), ModItemGroup.VOXELITE_Block_GROUP);
+	public static final DoorBlock BLUE_DUNGEON_DOOR = (LockableDoorBlock) registerDoorBlock("blue_dungeon_door", new LockableDoorBlock(FabricBlockSettings.of(Material.METAL).resistance(6).hardness(6), ModItems.BLUE_DUNGEON_KEY), ModItemGroup.VOXELITE_Block_GROUP);
+
 	/*
 	public static  final RegistryObject<Block> BLACKSTONEDOOR =  DEFERREDBLOCKS.register("black_stone_door", ()-> new BlockDoorBase(Material.ROCK,null,null,true,false));
 	public static  final RegistryObject<Block> BLACKSTONEDOORLOCKED =  DEFERREDBLOCKS.register("black_stone_door_locked", ()-> new BlockDoorBase(Material.ROCK,ModItems.BLACK_STONE_DUNGEON_KEY,BLACKSTONEDOOR,false,true));
@@ -40,6 +39,17 @@ public class ModBlocks {
 	
 	private static Item registerBlockItem(String name, Block block, ItemGroup tab) {
 		return Registry.register(Registry.ITEM, new Identifier(VoxeliteMod.MOD_ID, name), new BlockItem(block, ModItems.SETTINGS.group(tab)));
+	}
+
+	private static Block registerDoorBlock(String name, Block block, ItemGroup tab) {
+
+		registerDoorBlockItem(name, block, tab, false);
+		registerDoorBlockItem(name + "_locked", block, tab, true);
+		return Registry.register(Registry.BLOCK, new Identifier(VoxeliteMod.MOD_ID, name), block);
+	}
+
+	private static LockableDoorBlockItem registerDoorBlockItem(String name, Block block, ItemGroup tab, boolean locked) {
+		return Registry.register(Registry.ITEM, new Identifier(VoxeliteMod.MOD_ID, name), new LockableDoorBlockItem(block, ModItems.SETTINGS.group(tab),locked));
 	}
 
 	public static void registerModBlocks() {

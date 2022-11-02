@@ -1,7 +1,6 @@
-package com.everfire.voxelitemod.item;
+package com.everfire.voxelitemod.init;
 
 import com.everfire.voxelitemod.VoxeliteMod;
-import com.everfire.voxelitemod.block.ModBlocks;
 
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;

@@ -1,11 +1,14 @@
 package com.everfire.voxelitemod;
 
+import net.minecraft.block.Blocks;
+import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.everfire.voxelitemod.block.ModBlocks;
-import com.everfire.voxelitemod.fluid.ModFluids;
-import com.everfire.voxelitemod.item.ModItems;
+import com.everfire.voxelitemod.init.ModBlocks;
+import com.everfire.voxelitemod.init.ModFluids;
+import com.everfire.voxelitemod.init.ModItems;
 
 import net.fabricmc.api.ModInitializer;
 
@@ -22,7 +25,7 @@ public class VoxeliteMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-
+		Blocks.ACACIA_LEAVES.asItem().getGroup();
 		LOGGER.info("Hello Fabric world!");
 		
 		ModItems.registerModItems();

@@ -1,4 +1,4 @@
-package com.everfire.voxelitemod.particle;
+package com.everfire.voxelitemod.init;
 
 import com.everfire.voxelitemod.VoxeliteMod;
 

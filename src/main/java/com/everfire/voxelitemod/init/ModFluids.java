@@ -1,14 +1,14 @@
-package com.everfire.voxelitemod.fluid;
+package com.everfire.voxelitemod.init;
 
 import com.everfire.voxelitemod.block.VoxeliteFluidBlock;
-import com.everfire.voxelitemod.item.ModItemGroup;
+import com.everfire.voxelitemod.fluid.VoxeliteFluid;
+import com.everfire.voxelitemod.init.ModItemGroup;
 import com.everfire.voxelitemod.utils.VoxeliteUtils;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.FluidBlock;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;

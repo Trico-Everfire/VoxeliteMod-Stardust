@@ -1,8 +1,8 @@
 package com.everfire.voxelitemod.sided;
 
-import com.everfire.voxelitemod.block.ModBlocks;
-import com.everfire.voxelitemod.fluid.ModFluids;
-import com.everfire.voxelitemod.particle.ModParticles;
+import com.everfire.voxelitemod.init.ModBlocks;
+import com.everfire.voxelitemod.init.ModFluids;
+import com.everfire.voxelitemod.init.ModParticles;
 import com.everfire.voxelitemod.particle.StardustSporeParticle;
 import com.everfire.voxelitemod.utils.VoxeliteUtils;
 
@@ -22,6 +22,9 @@ public class VoxeliteModClient implements ClientModInitializer {
 
  
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.STARDUSTGROWTH, RenderLayer.getCutoutMipped());
+
+		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLACKSTONEDOOR, RenderLayer.getTranslucent());
+		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLUE_DUNGEON_DOOR, RenderLayer.getTranslucent());
         /* Registers our particle client-side. 
          * First argument is our particle's instance, created previously on ExampleMod. 
          * Second argument is the particle's factory. The factory controls how the particle behaves. 

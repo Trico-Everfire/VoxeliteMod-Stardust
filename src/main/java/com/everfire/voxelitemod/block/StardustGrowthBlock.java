@@ -2,16 +2,14 @@ package com.everfire.voxelitemod.block;
 
 import java.util.SplittableRandom;
 
-import com.everfire.voxelitemod.particle.ModParticles;
+import com.everfire.voxelitemod.init.ModParticles;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class StardustGrowthBlock extends Block {
